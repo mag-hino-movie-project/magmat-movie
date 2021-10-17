@@ -17,7 +17,7 @@ fetch('https://almondine-abiding-title.glitch.me/movies').then(response =>{
     response.json().then(titles =>{
         titles.forEach( titleObj =>{
             console.log(titleObj.title);
-            var titleMovie = titleObj.title.join(' ,')
+            var titleMovie = titleObj.title
             $('#demo').append(titleMovie)
         })
     })
@@ -28,3 +28,9 @@ fetch('https://almondine-abiding-title.glitch.me/movies').then(response =>{
 //     return user.name
 // }).join(', ')
 // console.log(nameString);
+
+//Show and hide loader until page loads
+$(window).on('load', function(){
+    $('.loader').fadeOut(2000);
+    $('.content').fadeIn(3000);
+})
