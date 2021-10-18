@@ -11,10 +11,11 @@ movies.then(function (result) {
     console.log(result);
     result.json().then((resultsObject) => console.log(resultsObject));
 })
-}
+})
 
 fetch('https://almondine-abiding-title.glitch.me/movies').then(response =>{
     response.json().then(titles =>{
+        console.log(titles);
         titles.forEach( titleObj =>{
             console.log(titleObj.title);
             var titleMovie = titleObj.title
@@ -23,11 +24,7 @@ fetch('https://almondine-abiding-title.glitch.me/movies').then(response =>{
                 "<img src='" + titleObj.poster + "'>",
                 "<p>" + "Movie Rating is: " + titleObj.rating +"</p>",
                 "<p>" + "Movie Genre is: " + titleObj.genre + "</p>"
-<<<<<<< HEAD
-            )
-=======
                 )
->>>>>>> 213b07e054a9d3c34dea19c204f4b36c24fc294c
         })
     })
 })
@@ -45,4 +42,41 @@ $(window).on('load', function () {
 })
 
 
+//TODO TRYING FUNCTIONS FOR ADDING MOVIE
+
+
+function addMovie(e) {
+    e.preventDefault()
+    var text = "";
+    var input = document.querySelector("#inputTitle").value
+    // var roastInput = document.querySelector("#roast-selection-new").value
+    var newMovie = {id:titleObj.length+1, name:input}
+    titles.push(newMovie)
+    tbody.innerHTML = renderMovies(movies)
+}
+
+function renderMovies(movies) {
+    var html = '';
+    for(var i = 0; i < movies.length; i++) {
+        html += titles(movies[i]);
+    }
+    return html;
+}
+
+var tbody = document.querySelector('#textArea');
+tbody.innerHTML = renderMovies(movies);
+
+// function renderMovie(movie) {
+//     // var html = '<div class="coffee">';
+//     $('#demo').append(
+//         "<div>" + "Movie title: " + titleMovie + "</div>",
+//         "<img src='" + titleObj.poster + "'>",
+//         "<p>" + "Movie Rating is: " + titleObj.rating +"</p>",
+//         "<p>" + "Movie Genre is: " + titleObj.genre + "</p>"
+//     )
+// }
+
+
+
+//TODO SEARCH FILM
 
