@@ -18,7 +18,12 @@ fetch('https://almondine-abiding-title.glitch.me/movies').then(response =>{
         titles.forEach( titleObj =>{
             console.log(titleObj.title);
             var titleMovie = titleObj.title
-            $('#demo').append(titleMovie)
+            $('#demo').append(
+                "<div>" + "Movie title: " + titleMovie + "</div>",
+                "<img src='" + titleObj.poster + "'>",
+                "<p>" + "Movie Rating is: " + titleObj.rating +"</p>",
+                "<p>" + "Movie Genre is: " + titleObj.genre + "</p>"
+                )
         })
     })
 })
