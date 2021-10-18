@@ -18,7 +18,12 @@ fetch('https://almondine-abiding-title.glitch.me/movies').then(response =>{
         titles.forEach( titleObj =>{
             console.log(titleObj.title);
             var titleMovie = titleObj.title
-            $('#demo').append(titleMovie)
+            $('#demo').append(
+                "<div>" + "Movie title: " + titleMovie + "</div>",
+                "<img src='" + titleObj.poster + "'>",
+                "<p>" + "Movie Rating is: " + titleObj.rating +"</p>",
+                "<p>" + "Movie Genre is: " + titleObj.genre + "</p>"
+            )
         })
     })
 })
@@ -30,7 +35,10 @@ fetch('https://almondine-abiding-title.glitch.me/movies').then(response =>{
 // console.log(nameString);
 
 //Show and hide loader until page loads
-$(window).on('load', function(){
+$(window).on('load', function () {
     $('.loader').fadeOut(2000);
     $('.content').fadeIn(3000);
 })
+
+
+
