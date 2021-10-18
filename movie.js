@@ -11,7 +11,7 @@ movies.then(function (result) {
     console.log(result);
     result.json().then((resultsObject) => console.log(resultsObject));
 })
-})
+}
 
 fetch('https://almondine-abiding-title.glitch.me/movies').then(response =>{
     response.json().then(titles =>{
@@ -23,7 +23,11 @@ fetch('https://almondine-abiding-title.glitch.me/movies').then(response =>{
                 "<img src='" + titleObj.poster + "'>",
                 "<p>" + "Movie Rating is: " + titleObj.rating +"</p>",
                 "<p>" + "Movie Genre is: " + titleObj.genre + "</p>"
+<<<<<<< HEAD
             )
+=======
+                )
+>>>>>>> 213b07e054a9d3c34dea19c204f4b36c24fc294c
         })
     })
 })
