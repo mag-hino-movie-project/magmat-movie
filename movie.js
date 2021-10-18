@@ -43,28 +43,56 @@ $(window).on('load', function () {
 
 
 //TODO TRYING FUNCTIONS FOR ADDING MOVIE
+var userInput = document.getElementById('inputTitle');
+
+document.querySelector('form.anotherInput').addEventListener('submit', function (e) {
+    e.preventDefault();
+    console.log(userInput.value);
+});
 
 
-function addMovie(e) {
-    e.preventDefault()
-    var text = "";
-    var input = document.querySelector("#inputTitle").value
-    // var roastInput = document.querySelector("#roast-selection-new").value
-    var newMovie = {id:titleObj.length+1, name:input}
-    titles.push(newMovie)
-    tbody.innerHTML = renderMovies(movies)
-}
 
-function renderMovies(movies) {
-    var html = '';
-    for(var i = 0; i < movies.length; i++) {
-        html += titles(movies[i]);
-    }
-    return html;
-}
+const newMovie = {
+    inputTitle: '',
+    // name: '',
+    // rating: 5,
+    // comments: "THIS PLACE SUCKS"
+};
+console.log(newMovie);
 
-var tbody = document.querySelector('#textArea');
-tbody.innerHTML = renderMovies(movies);
+const url = movies;
+const options = {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newMovie),
+};
+fetch(url, options)
+    .then( response => console.log(response) ) /* review was created successfully */
+    .catch( error => console.error(error) ); /* handle errors */
+
+
+// function addMovie(e) {
+//     e.preventDefault()
+//     var text = "";
+//     var input = document.querySelector("#inputTitle").value
+//     var newMovie = {id:titleObj.length+1, name:input}
+//     titles.push(newMovie)
+//     tbody.innerHTML = renderMovies(movies)
+// }
+//
+// function renderMovies(movies) {
+//     var html = '';
+//     for(var i = 0; i < movies.length; i++) {
+//         html += titles(movies[i]);
+//     }
+//     return html;
+// }
+//
+// var tbody = document.querySelector('#textArea');
+// console.log(tbody);
+// tbody.innerHTML = renderMovies(movies);
 
 // function renderMovie(movie) {
 //     // var html = '<div class="coffee">';
