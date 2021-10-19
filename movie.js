@@ -116,6 +116,3 @@ $(document).on('click', '.movieEdit', function (e) {
 })
 
 
-
-
-
