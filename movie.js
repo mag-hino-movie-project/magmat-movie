@@ -81,7 +81,7 @@ document.querySelector('form.anotherInput').addEventListener('submit', function 
 });
 
 
-//TODO SEARCH FILM
+//TODO EDIT FILM
 
 $(document).on('click', '.movieEdit', function (e) {
 
@@ -119,21 +119,37 @@ $(document).on('click', '.movieEdit', function (e) {
 
 //Delete movies
 
-$(document).on('click', '.movieDelete', function(e) {
-    e.preventDefault();
+// $(document).on('click', '.movieDelete', function(e) {
+//     e.preventDefault();
+//
+//     let remove = {
+//         method: 'DELETE',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//     }
+//     fetch(url, remove)
+//         .then((response) => response.json())
+//         .then(() => {
+//             $('#demo').append(showMovies).html('')
+//         })
+//     console.log(remove)
+// })
+//
 
 
-    let remove = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    }
-    fetch(url, remove)
-        .then((response) => response.json())
-        .then(() => {
-            $('#demo').append(showMovies).html('')
-        })
-    console.log(remove)
-})
 
+// editDog(piper).then((data)=>console.log(data))
+
+//DELETE DOG BY ID
+// function deleteMovie(id){
+//     let options = {
+//         method: 'DELETE',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//     }
+//     fetch(`${url}/${id}`, options)
+//         .then((response)=>response.json())
+//     console.log(id);
+// }
