@@ -18,6 +18,7 @@ function showMovies() {
                     "<p class='movieRating'>" + "Movie Rating is: " + movieData.rating + "</p>" +
                     "<p class='movieGenre'>" + "Movie Genre is: " + movieData.genre + "</p>" +
                     "<button class='movieEdit' type='button'>" + "Start Edits" + "</button>" +
+                    "<button class='movieDelete' type='submit'>" + "Delete Movie" +"</button>" +
                     "</div>"
                 )
             })
@@ -109,13 +110,30 @@ $(document).on('click', '.movieEdit', function (e) {
         };
         fetch(`${url}/${id}`, options)
             .then((response) => response.json())
-            .then((jsonData) => {
+            .then(() => {
                 $('#demo').append(showMovies).html('')
             })
     })
 })
 
 
+//Delete movies
+
+$(document).on('click', '.movieDelete', function(e) {
+    e.preventDefault();
 
 
+    let remove = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
+    fetch(url, remove)
+        .then((response) => response.json())
+        .then(() => {
+            $('#demo').append(showMovies).html('')
+        })
+    console.log(remove)
+})
 
