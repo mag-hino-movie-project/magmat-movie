@@ -16,6 +16,8 @@ function showMovies() {
                     "<img src='" + movieData.poster + "'>" +
                     "<p class='movieRating'>" + "Movie Rating is: " + movieData.rating + "</p>" +
                     "<p class='movieGenre'>" + "Movie Genre is: " + movieData.genre + "</p>" +
+                    "<p class='movieActor'>" + "Movie Actors are: " + movieData.actors + "</p>" +
+                    "<p class='moviePlot'>" + "Movie Plot is: " + movieData.plot + "</p>" +
                     "<button class='movieEdit' type='button'>" + "Start Edits" + "</button>" +
                     "<button class='movieDelete' type='submit'>" + "Delete Movie" + "</button>" +
                     "</div>"
@@ -45,14 +47,21 @@ document.querySelector('form.anotherInput').addEventListener('submit', function 
     let userAddMovieTitle = document.getElementsByClassName('title')[0].value;
     let userAddMovieRating = document.getElementsByClassName('rating')[0].value;
     let userAddMovieGenre = document.getElementsByClassName('genre')[0].value;
+    let userAddMovieActor = document.getElementsByClassName('actors')[0].value;
+    let userAddMoviePlot = document.getElementsByClassName('plot')[0].value;
+
     console.log(userAddMovieTitle)
     console.log(userAddMovieRating)
     console.log(userAddMovieGenre)
+    console.log(userAddMovieActor)
+    console.log(userAddMoviePlot)
 
     const newMovie = {
         title: userAddMovieTitle,
         rating: userAddMovieRating,
         genre: userAddMovieGenre,
+        actors: userAddMovieActor,
+        plot: userAddMoviePlot
     };
     console.log(newMovie);
 
@@ -68,11 +77,32 @@ document.querySelector('form.anotherInput').addEventListener('submit', function 
             return response.json()
         }).then(function (data) {
         console.log(data);
+        $('#demo').append(showMovies).html('')
     })
         .catch(error => console.error(error)); /* handle errors */
 });
 
-
+// let options = {
+//     method: 'DELETE',
+//     headers: {
+//         'Content-Type': 'application/json',
+//     },
+// }
+// fetch(`${url}/${id}`, options)
+//     .then((response) => response.json())
+//     .then(() => {
+//         $('#demo').append(showMovies).html('')
+//     })
+// console.log(options)
+// })
+// };
+// fetch(`${url}/${id}`, options)
+//     .then((response) => response.json())
+//     .then(() => {
+//         $('#demo').append(showMovies).html('')
+//     })
+// })
+// })
 
 
 $(document).on('click', '.movieEdit', function (e) {
@@ -85,6 +115,10 @@ $(document).on('click', '.movieEdit', function (e) {
             $('#title').val(movie.title);
             $('#rating').val(movie.rating);
             $('#genre').val(movie.genre);
+            $('#actors').val(movie.actors);
+            $('#plot').val(movie.plot);
+
+
         })
     $('#edit').click(e => {
         e.preventDefault()
@@ -92,6 +126,8 @@ $(document).on('click', '.movieEdit', function (e) {
             title: $('#title').val(),
             rating: $('#rating').val(),
             genre: $('#genre').val(),
+            actors: $('#actors').val(),
+            plot: $('#plot').val(),
         }
         let options = {
             method: 'PUT',
@@ -137,38 +173,5 @@ $(document).on('click', '.movieDelete', function (e) {
 })
 
 
-// $(document).on('click', '.movieDelete', function(e) {
-//     e.preventDefault();
-//
-//     let remove = {
-//         method: 'DELETE',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//     }
-//     fetch(url, remove)
-//         .then((response) => response.json())
-//         .then(() => {
-//             $('#demo').append(showMovies).html('')
-//         })
-//     console.log(remove)
-// })
-//
 
-
-
-// editDog(piper).then((data)=>console.log(data))
-
-//DELETE DOG BY ID
-// function deleteMovie(id){
-//     let options = {
-//         method: 'DELETE',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//     }
-//     fetch(`${url}/${id}`, options)
-//         .then((response)=>response.json())
-//     console.log(id);
-// }
 
