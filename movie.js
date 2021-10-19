@@ -11,11 +11,14 @@ fetch(url).then(response =>{
             console.log(movieData.title);
             var titleMovie = movieData.title
             $('#demo').append(
-                "<div>" + "Movie title: " + titleMovie + "</div>",
-                "<img src='" + movieData.poster + "'>",
-                "<p>" + "Movie Rating is: " + movieData.rating +"</p>",
-                "<p>" + "Movie Genre is: " + movieData.genre + "</p>"
-                )
+                "<div id='" + movieData.id + "'>" +
+                "<div class='movieTitle'>" + "Movie title: " + titleMovie + "</div>" +
+                "<img src='" + movieData.poster + "'>" +
+                "<p class='movieRating'>" + "Movie Rating is: " + movieData.rating +"</p>" +
+                "<p class='movieGenre'>" + "Movie Genre is: " + movieData.genre + "</p>" +
+                "<button class='movieEdit' type='button'>" + "Start Edits" + "</button>" +
+                "</div>"
+            )
         })
     })
 })
@@ -77,3 +80,31 @@ document.querySelector('form.anotherInput').addEventListener('submit', function 
 
 //TODO SEARCH FILM
 
+$(document).on('click', '.movieEdit', function(e){
+
+    let id = $(this).parent().attr("id")
+    console.log(id);
+
+    let editor = {
+        title: $('#title').val(),
+        rating: $('#rating').val(),
+        genre: $('#genre').val(),
+    }
+    let options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(editor), //Convert the JS object into a JSON string before sending it up to the server.
+    };
+    fetch(`${url}/${id}`, options)
+        .then((response) => response.json())
+        .then((jsonData) => {
+            console.log(jsonData);
+        })
+})
+// $(".movieEdit").on('click', function (e) {
+// e.preventDefault();
+
+//
+// })

@@ -26,7 +26,7 @@
 	<form id="userInput" class="anotherInput">
 		<div class="form-group">
 			<label for="inputTitle">Movie Title</label>
-			<input type="text" class="form-control title" id="inputTitle" placeholder="name@example.com">
+			<input type="text" class="form-control title" id="inputTitle" placeholder="Enter Movie Title">
 		</div>
 		<div class="form-group">
 			<label for="exampleFormControlSelect1">Movie Rating</label>
@@ -49,13 +49,34 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="textArea">Movie Plot/Actor info</label>
-			<textarea class="form-control" id="textArea" placeholder="Enter movie information here." rows="3"></textarea>
+			<label for="textArea">Actor Information</label>
+			<textarea class="form-control actors" id="textAreaActor" placeholder="Enter actor information here." rows="2"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="textArea">Movie Plot</label>
+			<textarea class="form-control plot" id="textArea" placeholder="Enter movie information here." rows="3"></textarea>
 		</div>
 		<button class="btn btn-primary" type="submit">Submit form</button>
 	</form>
 
-	<p id="demo"></p>
+	<div id="demo"></div>
+
+	<form class="editingForm">
+		<h2>Edit Movie</h2>
+		<div class="form-group">
+			<label for="title">Movie Title</label>
+			<input type="text" id="title">
+		</div>
+		<div class="form-group">
+			<label for="rating">Movie Rating</label>
+			<input type="text" id="rating">
+		</div>
+		<div class="form-group">
+			<label for="genre">Movie Genre</label>
+			<input type="text" id="genre">
+		</div>
+		<button type="submit">Edit</button>
+	</form>
 </div>
 
 
