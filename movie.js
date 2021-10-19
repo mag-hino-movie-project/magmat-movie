@@ -1,6 +1,5 @@
 'use strict'
 console.log('Testing')
-// fetch('https://almondine-abiding-title.glitch.me/movies')
 
 var url = 'https://almondine-abiding-title.glitch.me/movies';
 
@@ -18,32 +17,26 @@ function showMovies() {
                     "<p class='movieRating'>" + "Movie Rating is: " + movieData.rating + "</p>" +
                     "<p class='movieGenre'>" + "Movie Genre is: " + movieData.genre + "</p>" +
                     "<button class='movieEdit' type='button'>" + "Start Edits" + "</button>" +
-                    "<button class='movieDelete' type='submit'>" + "Delete Movie" +"</button>" +
+                    "<button class='movieDelete' type='submit'>" + "Delete Movie" + "</button>" +
                     "</div>"
                 )
             })
         })
     })
 }
+
 showMovies()
 
-//hello
-// var nameString = users.map(function (user){
-//     return user.name
-// }).join(', ')
-// console.log(nameString);
 
 //Show and hide loader until page loads
+
 $(window).on('load', function () {
     $('.loader').fadeOut(2000);
     $('.content').fadeIn(3000);
 })
 
 
-//TODO TRYING FUNCTIONS FOR ADDING MOVIE
-
-
-// var userInput = document.getElementById('inputTitle');
+//FUNCTION FOR ADDING MOVIE
 
 document.querySelector('form.anotherInput').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -60,7 +53,6 @@ document.querySelector('form.anotherInput').addEventListener('submit', function 
         title: userAddMovieTitle,
         rating: userAddMovieRating,
         genre: userAddMovieGenre,
-        // comments: "THIS PLACE SUCKS"
     };
     console.log(newMovie);
 
@@ -81,7 +73,7 @@ document.querySelector('form.anotherInput').addEventListener('submit', function 
 });
 
 
-//TODO EDIT FILM
+
 
 $(document).on('click', '.movieEdit', function (e) {
 
@@ -117,7 +109,33 @@ $(document).on('click', '.movieEdit', function (e) {
 })
 
 
-//Delete movies
+//DELETE MOVIES WITH BUTTON
+
+
+$(document).on('click', '.movieDelete', function (e) {
+    e.preventDefault();
+
+    let id = $(this).parent().attr("id")
+    console.log(id);
+    fetch(url + '/' + id).then((response) => response.json())
+        .then((movie) => {
+            console.log(movie);
+        })
+
+    let options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
+    fetch(`${url}/${id}`, options)
+        .then((response) => response.json())
+        .then(() => {
+            $('#demo').append(showMovies).html('')
+        })
+    console.log(options)
+})
+
 
 // $(document).on('click', '.movieDelete', function(e) {
 //     e.preventDefault();
@@ -153,3 +171,4 @@ $(document).on('click', '.movieEdit', function (e) {
 //         .then((response)=>response.json())
 //     console.log(id);
 // }
+
