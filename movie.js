@@ -81,7 +81,7 @@ document.querySelector('form.anotherInput').addEventListener('submit', function 
 });
 
 
-//TODO SEARCH FILM
+//TODO EDIT FILM
 
 $(document).on('click', '.movieEdit', function (e) {
 
