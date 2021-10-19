@@ -18,7 +18,6 @@ fetch(url).then(response =>{
                 "<p class='movieGenre'>" + "Movie Genre is: " + movieData.genre + "</p>" +
                 "<button class='movieEdit' type='button'>" + "Start Edits" + "</button>" +
                 "</div>"
-                )
         })
     })
 })
@@ -86,6 +85,28 @@ $(document).on('click', '.movieEdit', function(e){
     console.log(id);
 
     let editor = {
+        title: $('#title').val(),
+        rating: $('#rating').val(),
+        genre: $('#genre').val(),
+    }
+    let options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(editor), //Convert the JS object into a JSON string before sending it up to the server.
+    };
+    fetch(`${url}/${id}`, options)
+        .then((response) => response.json())
+        .then((jsonData) => {
+            console.log(jsonData);
+        })
+})
+// $(".movieEdit").on('click', function (e) {
+// e.preventDefault();
+
+//
+// })
             title: $('#title').val(),
             rating: $('#rating').val(),
             genre: $('#genre').val(),
