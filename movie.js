@@ -4,24 +4,27 @@ console.log('Testing')
 
 var url = 'https://almondine-abiding-title.glitch.me/movies';
 
-fetch(url).then(response => {
-    response.json().then(moviesArray => {
-        console.log(moviesArray);
-        moviesArray.forEach(movieData => {
-            console.log(movieData.title);
-            var titleMovie = movieData.title
-            $('#demo').append(
-                "<div id='" + movieData.id + "'>" +
-                "<div class='movieTitle'>" + "Movie title: " + titleMovie + "</div>" +
-                "<img src='" + movieData.poster + "'>" +
-                "<p class='movieRating'>" + "Movie Rating is: " + movieData.rating + "</p>" +
-                "<p class='movieGenre'>" + "Movie Genre is: " + movieData.genre + "</p>" +
-                "<button class='movieEdit' type='button'>" + "Start Edits" + "</button>" +
-                "</div>"
-            )
+function showMovies() {
+    fetch(url).then(response => {
+        response.json().then(moviesArray => {
+            console.log(moviesArray);
+            moviesArray.forEach(movieData => {
+                console.log(movieData.title);
+                var titleMovie = movieData.title
+                $('#demo').append(
+                    "<div id='" + movieData.id + "'>" +
+                    "<div class='movieTitle'>" + "Movie title: " + titleMovie + "</div>" +
+                    "<img src='" + movieData.poster + "'>" +
+                    "<p class='movieRating'>" + "Movie Rating is: " + movieData.rating + "</p>" +
+                    "<p class='movieGenre'>" + "Movie Genre is: " + movieData.genre + "</p>" +
+                    "<button class='movieEdit' type='button'>" + "Start Edits" + "</button>" +
+                    "</div>"
+                )
+            })
         })
     })
-})
+}
+showMovies()
 
 //hello
 // var nameString = users.map(function (user){
@@ -107,26 +110,7 @@ $(document).on('click', '.movieEdit', function (e) {
         fetch(`${url}/${id}`, options)
             .then((response) => response.json())
             .then((jsonData) => {
-                console.log(jsonData);
-                fetch(url)
-                    .then((response) => response.json())
-                    .then((moviesArray2) => {
-                        console.log(moviesArray2);
-                        moviesArray2.forEach(movieData2 => {
-                            console.log(movieData2.title);
-                            // var titleMovie = movieData.title
-                            $('#demo').append(
-                                "<div id='" + movieData2.id + "'>" +
-                                "<div class='movieTitle'>" + "Movie title: " + movieData2.title + "</div>" +
-                                "<img src='" + movieData2.poster + "'>" +
-                                "<p class='movieRating'>" + "Movie Rating is: " + movieData2.rating + "</p>" +
-                                "<p class='movieGenre'>" + "Movie Genre is: " + movieData2.genre + "</p>" +
-                                "<button class='movieEdit' type='button'>" + "Start Edits" + "</button>" +
-                                "</div>"
-                            )
-                        })
-                        // $('#edit').append(html)
-                    })
+                $('#demo').append(showMovies).html('')
             })
     })
 })
