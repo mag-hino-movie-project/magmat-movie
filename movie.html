@@ -20,17 +20,17 @@
 <div class="content">
 	<header>
 		<h3>Welcome to Movies</h3>
-		<h5>Select a movie below</h5>
+		<h5>Edit a movie below</h5>
 	</header>
 
 	<form id="userInput" class="anotherInput">
 		<div class="form-group">
 			<label for="inputTitle">Movie Title</label>
-			<input type="text" class="form-control title" id="inputTitle" placeholder="Enter Movie Title">
+			<input type="text" class="form-control title addMovieForm" id="inputTitle" placeholder="Enter Movie Title">
 		</div>
 		<div class="form-group">
 			<label for="exampleFormControlSelect1">Movie Rating</label>
-			<select class="form-control rating" id="exampleFormControlSelect1">
+			<select class="form-control rating addMovieForm" id="exampleFormControlSelect1">
 				<option>1</option>
 				<option>2</option>
 				<option>3</option>
@@ -40,7 +40,7 @@
 		</div>
 		<div class="form-group">
 			<label for="exampleFormControlSelect2">Multiple Genre select</label>
-			<select multiple class="form-control genre" id="exampleFormControlSelect2">
+			<select multiple class="form-control genre addMovieForm" id="exampleFormControlSelect2">
 				<option>Action</option>
 				<option>Comedy</option>
 				<option>Drama</option>
@@ -50,43 +50,43 @@
 		</div>
 		<div class="form-group">
 			<label for="textArea">Actor Information</label>
-			<textarea class="form-control actors" id="textAreaActor" placeholder="Enter actor information here." rows="2"></textarea>
+			<textarea class="form-control actors addMovieForm" id="textAreaActor" placeholder="Enter actor information here." rows="2"></textarea>
 		</div>
 		<div class="form-group">
 			<label for="textArea">Movie Plot</label>
-			<textarea class="form-control plot" id="textArea" placeholder="Enter movie information here." rows="3"></textarea>
+			<textarea class="form-control plot addMovieForm" id="textArea" placeholder="Enter movie information here." rows="3"></textarea>
 		</div>
-		<button class="btn btn-primary" type="submit">Submit form</button>
+		<button class="btn btn-primary submitButton" type="submit">Submit New Movie</button>
 
 	</form>
 
 	<div id="demo"></div>
 
-	<form class="editingForm">
+	<form class="editingForm" id="editingForm">
 		<h2>Edit Movie</h2>
 		<div class="form-group">
 			<label for="title">Movie Title</label>
-			<input type="text" id="title">
+			<input type="text" class="form-control editMovieForm" id="title">
 		</div>
 		<div class="form-group">
 			<label for="rating">Movie Rating</label>
-			<input type="text" id="rating">
+			<input type="text" class="form-control editMovieForm" id="rating">
 		</div>
 		<div class="form-group">
 			<label for="genre">Movie Genre</label>
-			<input type="text" id="genre">
+			<input type="text" class="form-control editMovieForm" id="genre">
 		</div>
 		<div class="form-group">
 			<label for="actors">Movie Actors</label>
 <!--			<input type="text" id="actors">-->
-			<textarea id="actors" rows="3"></textarea>
+			<textarea class="form-control editMovieForm" id="actors" rows="3"></textarea>
 		</div>
 		<div class="form-group">
 			<label for="plot">Movie Plot</label>
 <!--			<input type="text" id="plot">-->
-			<textarea id="plot" rows="3"></textarea>
+			<textarea class="form-control editMovieForm" id="plot" rows="3"></textarea>
 		</div>
-		<button id='edit' type="submit" class="editing">Edit</button>
+		<button id='edit' type="submit" class="editing btn btn-primary editButton">Edit Movie</button>
 	</form>
 </div>
 

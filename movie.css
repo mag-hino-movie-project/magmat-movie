@@ -7,6 +7,7 @@
 body{
     background-color: #16191e;
     color: #fff;
+    /*background-image: url("https://www.santikos.com/media/1365/palladium-imax-aud.jpg");*/
 }
 
 header{
@@ -58,4 +59,51 @@ h5{
     100%{
         transform: rotate(360deg);
     }
+}
+
+
+/*This is to edit the info displayed to screen from api*/
+.movieElements{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em auto 1em;
+}
+
+strong{
+    color: #2A88E6;
+}
+
+a{
+    color: white;
+}
+
+a:hover{
+    color: #16191e;
+}
+
+.addMovieForm{
+    background-color: darkgrey;
+    color: white;
+}
+
+.editMovieForm{
+    background-color: darkgray;
+    color: white;
+}
+
+button{
+    width: 75%;
+}
+
+.submitButton{
+    width: 100%;
+    margin: 10px auto 2em;
+}
+
+.editButton{
+    width: 100%;
+    margin: 10px auto 2em;
 }
