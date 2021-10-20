@@ -1,7 +1,7 @@
 'use strict'
 console.log('Testing')
 
-var url = 'https://almondine-abiding-title.glitch.me/movies';
+var url = 'https://fluoridated-geode-cotija.glitch.me/movies';
 
 function showMovies() {
     fetch(url).then(response => {
@@ -12,14 +12,14 @@ function showMovies() {
                 var titleMovie = movieData.title
                 $('#demo').append(
                     "<div id='" + movieData.id + "'>" +
-                    "<div class='movieTitle'>" + "Movie title: " + titleMovie + "</div>" +
-                    "<img src='" + movieData.poster + "'>" +
-                    "<p class='movieRating'>" + "Movie Rating is: " + movieData.rating + "</p>" +
-                    "<p class='movieGenre'>" + "Movie Genre is: " + movieData.genre + "</p>" +
-                    "<p class='movieActor'>" + "Movie Actors are: " + movieData.actors + "</p>" +
-                    "<p class='moviePlot'>" + "Movie Plot is: " + movieData.plot + "</p>" +
-                    "<button class='movieEdit' type='button'>" + "Start Edits" + "</button>" +
-                    "<button class='movieDelete' type='submit'>" + "Delete Movie" + "</button>" +
+                    "<div class='movieTitle movieElements'>" + "<strong>Movie title: </strong>" + titleMovie + "</div>" +
+                    "<img class='movieElements' src='" + movieData.poster + "'>" +
+                    "<p class='movieRating movieElements'>" + "<strong>Movie Rating is: </strong>" + movieData.rating + "</p>" +
+                    "<p class='movieGenre movieElements'>" + "<strong>Movie Genre is: </strong>" + movieData.genre + "</p>" +
+                    "<p class='movieActor movieElements'>" + "<strong>Movie Actors are: </strong>" + movieData.actors + "</p>" +
+                    "<p class='moviePlot movieElements'>" + "<strong>Movie Plot is: </strong>" + movieData.plot + "</p>" +
+                    "<button class='movieEdit btn btn-primary movieElements' type='button'>" + "<a href='#editingForm'>" + "Make Edits" + "</a>" + "</button>" +
+                    "<button class='movieDelete btn btn-danger movieElements' type='submit'>" + "Delete Movie" + "</button>" +
                     "</div>"
                 )
             })
@@ -32,11 +32,11 @@ showMovies()
 
 //Show and hide loader until page loads
 
-$(window).on('load', function () {
-    $('.loader').fadeOut(2000);
-    $('.content').fadeIn(3000);
-})
+$(document).ready(function() {
 
+    $(".loader").fadeOut(2000);
+    $(".content").fadeIn(4000);
+});
 
 //FUNCTION FOR ADDING MOVIE
 
@@ -82,27 +82,8 @@ document.querySelector('form.anotherInput').addEventListener('submit', function 
         .catch(error => console.error(error)); /* handle errors */
 });
 
-// let options = {
-//     method: 'DELETE',
-//     headers: {
-//         'Content-Type': 'application/json',
-//     },
-// }
-// fetch(`${url}/${id}`, options)
-//     .then((response) => response.json())
-//     .then(() => {
-//         $('#demo').append(showMovies).html('')
-//     })
-// console.log(options)
-// })
-// };
-// fetch(`${url}/${id}`, options)
-//     .then((response) => response.json())
-//     .then(() => {
-//         $('#demo').append(showMovies).html('')
-//     })
-// })
-// })
+
+// FUNCTION TO EDIT MOVIES
 
 
 $(document).on('click', '.movieEdit', function (e) {
